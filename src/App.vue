@@ -1,25 +1,24 @@
 <template>
   <div style="padding: 14px;">
-    <CountrySearch @selected="countrySelected"></CountrySearch>
-    <CountryDetail :countryItem="countryItem"></CountryDetail>
+    <div class="ui two item menu">
+      <a :class="{item : true , active : active == 'query'}" @click="active='query'" >Query</a>
+      <a :class="{item : true , active : active == 'report'}" @click="active='report'" >Report</a>
+    </div>
+    <QueryPage v-if="active == 'query'"></QueryPage>
+    <ReportPage v-if="active == 'report'"></ReportPage>
   </div>
 </template>
 <script>
-import CountrySearch from './components/CountrySearch'
-import CountryDetail from './components/CountryDetail'
+import QueryPage from './components/QueryPage'
+import ReportPage from './components/ReportPage'
 export default {
   components: {
-    CountrySearch,
-    CountryDetail
+    QueryPage,
+    ReportPage
   },
-  data () {
+  data(){
     return {
-      countryItem: null
-    }
-  },
-  methods: {
-    countrySelected (item) {
-      this.countryItem = item
+      active: 'query'
     }
   }
 }

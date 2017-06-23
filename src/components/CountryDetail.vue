@@ -7,7 +7,7 @@
       <span class="ui yellow label">{{country.country.code}}</span>
       <span class="ui red label">{{contientMap[country.country.continent]}}</span>
       <span class="ui blue label">{{country.airports.length}} Airports</span>
-      <span class="ui green label">{{country.airports.map(a=>a.runways ? a.runways.length : 0).reduce((pv, cv) => pv+cv, 0)}} Runways</span>
+      <span class="ui green label">{{country.airports.map(a=>a.runways ? a.runways.length : 1).reduce((pv, cv) => pv+cv, 0)}} Runways</span>
     </div>
   <table class="ui celled structured striped table">
   <thead>
@@ -18,7 +18,7 @@
     <tr>
       <th style="width:80px">Id</th>
       <th style="width:80px">Surface</th>
-      <th style="width:80px">leIdent</th>
+      <th style="width:80px">le_Ident</th>
     </tr>
   </thead>
   <tbody>
